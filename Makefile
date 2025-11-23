@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 .PHONY: setup_env remove_env data features train predict run clean test
 PROJECT_NAME=work-at-gojek
 
@@ -15,11 +16,11 @@ setup_env:
 ifeq (True,$(HAS_PYENV))
 	@echo ">>> Detected pyenv, setting pyenv version to ${CONDA_VERSION}"
 	pyenv local ${CONDA_VERSION}
-	conda env create --name $(PROJECT_NAME) -f environment.yaml --force
+	conda env create --name $(PROJECT_NAME) -f environment.yaml
 	pyenv local ${CONDA_VERSION}/envs/${PROJECT_NAME}
 else
 	@echo ">>> Creating conda environment."
-	conda env create --name $(PROJECT_NAME) -f environment.yaml --force
+	conda env create --name $(PROJECT_NAME) -f environment.yaml
 	@echo ">>> Activating new conda environment"
 	source $(CONDA_ROOT)/bin/activate $(PROJECT_NAME)
 endif
