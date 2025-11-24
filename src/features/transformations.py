@@ -23,8 +23,9 @@ def hour_of_day(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 def week(df:pd.DataFrame) -> pd.DataFrame:
-    df['event_timestamp'] = pd.to_datetime(df['event_timestamp'], errors='coerce')
-    df['week']=df['event_timestamp'].dt.weekday
+    df['datetime_timestamp'] = pd.to_datetime(df['event_timestamp'], errors='coerce')
+    df['week']=df['datetime_timestamp'].dt.weekday
+    return df
 
 def customer_cluster(df, kmeans_pickup=None):
     pickup_locations = df[['pickup_latitude', 'pickup_longitude']].dropna()

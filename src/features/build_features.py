@@ -27,6 +27,7 @@ def apply_feature_engineering(df: pd.DataFrame, historical_data: pd.DataFrame = 
     store = AssignmentStore()
     df = driver_distance_to_pickup(df)
     df= hour_of_day(df)
+    df=week(df)
     df = driver_historical_completed_bookings(df, historical_data)
     df,pickup_cluster = customer_cluster(df,cust_cluster)
     if(cust_cluster==None): store.put_model("pickup_cluster.pkl", pickup_cluster)
