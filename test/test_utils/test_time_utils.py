@@ -14,4 +14,4 @@ class TestTimeUtils(unittest.TestCase):
 
     @raises(ValueError)
     def test_robust_hour_of_iso_date_with_invalid_iso_string(self):
-        self.assertRaises(ValueError, robust_hour_of_iso_date("2015-05-12 05:25:23"))
+        robust_hour_of_iso_date("2015-05-12 05:25:23")

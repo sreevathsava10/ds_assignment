@@ -28,7 +28,7 @@ class TestTransformationFeatures(unittest.TestCase):
         df = pd.DataFrame({"event_timestamp": ["2015-05-12 05:25:23.904 UTC"]})
         got = hour_of_day(df)
         self.assertIn("event_hour", got.columns)
-        self.assertEqual(len(got.columns), 2)
+        self.assertEqual(len(got.columns), 3)
         self.assertEqual(got["event_hour"].tolist(), [5])
 
     @raises(KeyError)

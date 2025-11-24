@@ -1,12 +1,12 @@
 from sklearn.model_selection import train_test_split, RandomizedSearchCV,GridSearchCV,StratifiedKFold
 from sklearn.preprocessing import StandardScaler
 import xgboost as xgb
+import pandas as pd
 from xgboost import XGBClassifier
 from src.models.classifier import SklearnClassifier
 from src.utils.config import load_config
 from src.utils.guardrails import validate_evaluation_metrics
 from src.utils.store import AssignmentStore
-
 
 @validate_evaluation_metrics
 def main():
@@ -31,7 +31,7 @@ def main():
             estimator=xg_estimator,
             param_grid=param_grid,
             scoring=config["gridsearch"]["scoring"],
-            cv = StratifiedKFold(n_splits=config["gridsearch"]["cv"], shuffle=True, random_state=42)
+            cv = StratifiedKFold(n_splits=config["gridsearch"]["cv"], shuffle=True, random_state=42),
             n_jobs=config["gridsearch"]["n_jobs"],
             verbose=config["gridsearch"]["verbose"]
         )

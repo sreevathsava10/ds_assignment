@@ -12,12 +12,19 @@ def hour_of_iso_date(iso_str: str, date_format: str = DATE_FMT) -> int:
     return iso_to_datetime(iso_str, date_format).hour
 
 
-def robust_hour_of_iso_date(iso_str: str, date_format: str = DATE_FMT) -> int:
+def robust_hour_of_iso_date(date_str: str) -> int:
+    if not isinstance(date_str, str):
+        raise ValueError("Input must be a string")
+
+    # Reject strings without timezone
+    if "UTC" not in date_str and "Z" not in date_str and "+" not in date_str:
+        raise ValueError(f"Invalid ISO timestamp: {date_str}")
+
     try:
-        dt = pd.to_datetime(iso_str, format=date_format, errors="raise")
-    except:
-        dt = pd.to_datetime(iso_str, format="%Y-%m-%d %H:%M:%S %Z", errors="coerce")
-    
-    if pd.isna(dt):
-        return None  # or -1 if you prefer
-    return dt.hour
+        dt = datetime.fromisoformat(date_str.replace(" UTC", "+00:00"))
+        return dt.hour
+
+    except Exception:
+        raise ValueError(f"Invalid ISO timestamp: {date_str}")
+
+
