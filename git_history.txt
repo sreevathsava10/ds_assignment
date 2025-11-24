@@ -1,0 +1,29 @@
+commit 0c6bdd499b898b36f9d761e72846bb8dc02bb640
+Author: Sreevathsava <sreevathsava.pak@tigeranalytics.com>
+Date:   Mon Nov 24 22:53:52 2025 +0530
+
+    made changes in the utils so that all the tests pass
+
+commit ea6c546c5de59e0d52807537897f0f5df43799bf
+Author: Sreevathsava <sreevathsava.pak@tigeranalytics.com>
+Date:   Mon Nov 24 16:19:52 2025 +0530
+
+    Used XGBoost Model to train and evaluation metric is classification report
+
+commit 579f63eeeaebb2a538d034a07953ee0816c2f6e8
+Author: Sreevathsava <sreevathsava.pak@tigeranalytics.com>
+Date:   Sun Nov 23 22:32:16 2025 +0530
+
+    added week,driver_historical_bookings,driver_cluster,customer_cluster features
+
+commit ab209c09f55385c9beadc9e93c69e66c3e4ec952
+Author: Sreevathsava <sreevathsava.pak@tigeranalytics.com>
+Date:   Sun Nov 23 17:37:37 2025 +0530
+
+    Changed the expired versions and removed errors in setup_env function in makefile
+
+commit e6ec7a473d9ba132618f7a6e2c131a02bf21bf21
+Author: sreevathsava10 <20cs01010@iitbbs.ac.in>
+Date:   Sun Nov 23 13:59:13 2025 +0530
+
+    initial commit
